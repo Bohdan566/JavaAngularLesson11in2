@@ -1,0 +1,39 @@
+<form #myForm="ngForm" (ngSubmit)="save(myForm)">
+  <input type="text" name="name" [(ngModel)]="user.name">
+  <input type="text" name="username" [(ngModel)]="user.username">
+  <input type="text" name="email" [(ngModel)]="user.email">
+  <button>save</button>
+<!--  <button (click)="delete(myForm)">delete</button>-->
+</form>
+
+<hr>
+
+<div *ngFor="let user of users">
+  {{user.id}}<br>
+  {{user.name}}<br>
+  {{user.username}}<br>
+  {{user.email}}
+  <button (click)="delete(user)">delete</button>
+  <button (click)="goTo(user)">goTo</button>
+
+
+  <form #myForm="ngForm" (ngSubmit)="update(user)">
+    <input type="text" name="nameCheng" [(ngModel)]="user.name">
+    <input type="text" name="usernameCheng" [(ngModel)]="user.username">
+    <input type="text" name="emailCheng" [(ngModel)]="user.email">
+    <button>update</button>
+  </form>
+</div>
+
+<hr>
+<hr>
+
+<div>
+  {{chosenUser?.id}}<br>
+  {{chosenUser?.name}}<br>
+  {{chosenUser?.username}}<br>
+  {{chosenUser?.email}}
+</div>
+
+
+
